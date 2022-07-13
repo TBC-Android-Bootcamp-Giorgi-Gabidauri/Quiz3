@@ -2,7 +2,6 @@ package com.gabo.editprofiledesign.adapter
 
 
 import android.annotation.SuppressLint
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
