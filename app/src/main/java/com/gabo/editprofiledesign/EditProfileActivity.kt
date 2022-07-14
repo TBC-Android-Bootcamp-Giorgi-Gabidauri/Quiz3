@@ -15,11 +15,11 @@ class EditProfileActivity : AppCompatActivity() {
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val editProfileAdapter = EditProfileAdapter()
-        binding.rv.adapter = editProfileAdapter
-        binding.rv.layoutManager = LinearLayoutManager(this)
-
-        editProfileAdapter.submitList(getList())
+//        val editProfileAdapter = EditProfileAdapter()
+//        binding.rv.adapter = editProfileAdapter
+//        binding.rv.layoutManager = LinearLayoutManager(this)
+//
+//        editProfileAdapter.submitList(getList())
 
     }
 }

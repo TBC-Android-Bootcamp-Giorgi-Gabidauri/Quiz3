@@ -7,109 +7,238 @@
     android:background="@color/bgDarkColor"
     tools:context=".EditProfileActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivProfileMenuStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginStart="22dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_address" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profile"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:layout_marginStart="17dp"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/ivProfileMenuStart"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivProfileMenuEnd"
-        android:layout_width="wrap_content"
-        android:layout_marginEnd="23dp"
-        android:layout_marginTop="23dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_address" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ivProfilePic"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvProfile"/>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/ivProfilePic"
-        app:layout_constraintEnd_toEndOf="@id/ivProfilePic"
-        android:src="@drawable/ic_edit"/>
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/andrew_ainsley"
-        android:textSize="23sp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivProfilePic"/>
-
-    <TextView
-        android:id="@+id/tvNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_1_111_467_378_399"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="12sp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="2dp"
-        app:layout_constraintTop_toBottomOf="@id/tvNumber"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/divider"
-        app:layout_constraintBottom_toBottomOf="@id/glBottomNavTop"
-        android:layout_marginStart="22dp"
-        android:id="@+id/rv"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="22dp"
-        tools:listitem="@layout/edit_profile_item"
+        app:layout_constraintBottom_toTopOf="@id/glBottomNavTop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivProfileMenuStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_menu_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/profile"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/ivProfileMenuStart"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivProfileMenuEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="23dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_menu_dots" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                app:dividerColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNumber" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfilePic"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="25dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProfile" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="@id/ivProfilePic"
+                app:layout_constraintEnd_toEndOf="@id/ivProfilePic" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/andrew_ainsley"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivProfilePic" />
+
+            <TextView
+                android:id="@+id/tvNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/_1_111_467_378_399"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_person_24"
+                app:setLanguageTextVisible="false"
+                app:setName="EditProfile"
+                app:setSwitchVisible="false" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvEditProfile"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_address"
+                app:setName="Address" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvNotifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvAddress"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_nav_bell"
+                app:setName="Notifications" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvNotifications"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_payment_24"
+                app:setName="Payment" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvSecurity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvPayment"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_security_24"
+                app:setName="Security" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvSecurity"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_language_24"
+                app:setLanguageTextVisible="true"
+                app:setName="Language" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvDarkMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvLanguage"
+                app:setImageDrawable="@drawable/ic_baseline_dark_mode_24"
+                app:setName="Dark Mode"
+                app:setSwitchVisible="true" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvPrivacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvDarkMode"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_lock_24"
+                app:setName="Privacy Policy" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvHelpCenter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvPrivacyPolicy"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_help_outline_24"
+                app:setName="Help Center" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvInviteFriends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvHelpCenter"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_people_outline_24"
+                app:setName="Invite Friends" />
+
+            <com.gabo.editprofiledesign.customView.EditProfileCustomView
+                android:id="@+id/cvLogOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvInviteFriends"
+                app:setArrowForwardVisible="true"
+                app:setImageDrawable="@drawable/ic_baseline_exit_to_app_24"
+                app:setName="Logout"
+                app:setNameColor="@color/red" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glBottomNavTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9"/>
+        app:layout_constraintGuide_percent="0.9" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glBottomNav"
         android:layout_width="wrap_content"
@@ -120,48 +249,47 @@
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ivBottomHeart"
         android:layout_width="wrap_content"
-        android:background="@drawable/ic_address"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_home_24"
         app:layout_constraintBottom_toBottomOf="@id/glBottomNav"
         app:layout_constraintEnd_toStartOf="@id/ivBottomHome"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ivBottomHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_shopping_bag_24"
         app:layout_constraintBottom_toBottomOf="@id/glBottomNav"
         app:layout_constraintEnd_toStartOf="@id/ivBottomMsg"
-        app:layout_constraintStart_toEndOf="@+id/ivBottomHeart"
-        android:background="@drawable/ic_address" />
+        app:layout_constraintStart_toEndOf="@+id/ivBottomHeart" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ivBottomMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_add_shopping_cart_24"
         app:layout_constraintBottom_toBottomOf="@id/glBottomNav"
         app:layout_constraintEnd_toStartOf="@id/ivBottomBell"
-        app:layout_constraintStart_toEndOf="@+id/ivBottomHome"
-        android:background="@drawable/ic_address" />
+        app:layout_constraintStart_toEndOf="@+id/ivBottomHome" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ivBottomBell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_account_balance_wallet_24"
         app:layout_constraintBottom_toBottomOf="@id/glBottomNav"
         app:layout_constraintEnd_toStartOf="@id/ivBottomStar"
-        app:layout_constraintStart_toEndOf="@+id/ivBottomMsg"
-        android:background="@drawable/ic_address" />
+        app:layout_constraintStart_toEndOf="@+id/ivBottomMsg" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ivBottomStar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_person_24"
         app:layout_constraintBottom_toBottomOf="@id/glBottomNav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivBottomBell"
-        android:background="@drawable/ic_address" />
+        app:layout_constraintStart_toEndOf="@+id/ivBottomBell" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

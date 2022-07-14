@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditProfileItem">
+        <attr name="setImageDrawable" format="reference" />
+        <attr name="setName" format="string" />
+        <attr name="setNameColor" format="reference" />
+        <attr name="setLanguageTextVisible" format="boolean"/>
+        <attr name="setArrowForwardVisible" format="boolean"/>
+        <attr name="setSwitchVisible" format="boolean"/>
+    </declare-styleable>
+</resources>
